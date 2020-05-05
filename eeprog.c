@@ -148,6 +148,7 @@ int write_to_eeprom(struct eeprom *e, int addr)
 		print_info(".");
 		fflush(stdout);
 		die_if(eeprom_write_byte(e, addr++, c), "write error");
+		usleep(20000);//tWR, max 20ms
 	}
 	print_info("\n\n");
 	return 0;
